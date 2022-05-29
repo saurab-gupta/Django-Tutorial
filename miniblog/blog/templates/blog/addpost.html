@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="col-sm-10">
+    <h3 class="test-white my-5">Dashboard/ Add POST</h3>
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {% if form %}
+        {% for fm in form %}
+        {{fm.label_tag}} {{fm}} <small class="text-warning">  {{fm.errors|striptags}}</small> <br>
+    
+        {% endfor %}
+        {% endif %}
+        <input type="submit" value="Add" class="btn btn-success my-3">
+        <a href='{% url 'dashboard' %}' class="btn btn-danger">Cancel</a>
+
+    </form>
+</div>
+{% endblock content %}
